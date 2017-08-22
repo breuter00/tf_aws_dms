@@ -17,12 +17,12 @@ resource "aws_dms_endpoint" "source" {
     Name = "test"
   }
 */
-  username = "${var.target_username}"
+  username = "${var.source_username}"
 }
 resource "aws_dms_endpoint" "target" {
   certificate_arn             = ""
   database_name               = ""
-  endpoint_id                 = "${var.dms_instance_name}-${var.source_schema}-src"
+  endpoint_id                 = "${var.dms_instance_name}-${var.source_schema}-tgt"
   endpoint_type               = "target"
   engine_name                 = "aurora"
   extra_connection_attributes = ""
@@ -43,7 +43,7 @@ resource "aws_dms_replication_task" "task" {
   cdc_start_time            = "${var.cdc_start_time}"
   migration_type            = "full-load-and-cdc"
   replication_instance_arn  = "${var.dms_instance_arn}"
-  replication_task_id       = "full-load-and-cdc-${var.dms_instance_name}-${var.source_schema}"
+  replication_task_id       = "${var.dms_instance_name}-${var.source_schema}-full-load-and-cdc"
   source_endpoint_arn       = "${aws_dms_endpoint.source.endpoint_arn}"
   target_endpoint_arn       = "${aws_dms_endpoint.target.endpoint_arn}"
   replication_task_settings = "{${var.task_setting_target},${var.task_setting_full_load},${var.task_setting_log_components},${var.task_setting_control},${var.task_setting_ddl},${var.task_setting_error},${var.task_setting_change_tuning}}"
