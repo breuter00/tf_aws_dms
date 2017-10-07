@@ -51,7 +51,8 @@ variable "task_transform_rule_a" {
     default = "{\n\t\"rules\": [\n\t\t{\n\t\t\t\"rule-type\": \"selection\",\n\t\t\t\"rule-id\": \"1\",\n\t\t\t\"rule-name\": \"1\",\n\t\t\t\"object-locator\": {\n\t\t\t\t\"schema-name\": \""
 }
 variable "task_transform_rule_b" {
-    default = "\",\n\t\t\t\t\"table-name\": \"%\"\n\t\t\t},\n\t\t\t\"rule-action\": \"include\"\n\t\t},\n\t\t{\n\t\t\t\"rule-type\": \"transformation\",\n\t\t\t\"rule-id\": \"2\",\n\t\t\t\"rule-name\": \"2\",\n\t\t\t\"rule-target\": \"schema\",\n\t\t\t\"object-locator\": {\n\t\t\t\t\"schema-name\": \"%\"\n\t\t\t},\n\t\t\t\"rule-action\": \"add-prefix\",\n\t\t\t\"value\": \"src_\"\n\t\t}\n\t]\n}"
+    default = "\",\n\t\t\t\t\"table-name\": \"%\"\n\t\t\t},\n\t\t\t\"rule-action\": \"include\"\n\t\t}\n\t]\n}"
+//    ,\n\t\t{\n\t\t\t\"rule-type\": \"transformation\",\n\t\t\t\"rule-id\": \"2\",\n\t\t\t\"rule-name\": \"2\",\n\t\t\t\"rule-target\": \"schema\",\n\t\t\t\"object-locator\": {\n\t\t\t\t\"schema-name\": \"%\"\n\t\t\t},\n\t\t\t\"rule-action\": \"add-prefix\",\n\t\t\t\"value\": \"src_\"\n\t\t}\n\t]\n}"
     description = ""
 }
 #http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad.html
